@@ -1,4 +1,4 @@
-1
+12
 CREATE TABLE employee_tbl (
   id int(11) NOT NULL,
   name char(10) NOT NULL DEFAULT '',
