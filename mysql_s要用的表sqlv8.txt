@@ -1,0 +1,479 @@
+1
+CREATE TABLE employee_tbl (
+  id int(11) NOT NULL,
+  name char(10) NOT NULL DEFAULT '',
+  date datetime NOT NULL,
+  singin tinyint(4) NOT NULL DEFAULT '0' COMMENT '登录次数',
+  PRIMARY KEY (id)
+); 
+INSERT INTO employee_tbl VALUES (1, '小明', '2016-04-22 15:25:33', '1'), 
+(2, '小王', '2016-04-20 15:25:47', '3'), (3, '小丽', '2016-04-19 15:26:02', '2'), 
+(4, '小王', '2016-04-07 15:26:14', '4'), (5, '小明', '2016-04-11 15:26:40', '4'), 
+(6, '小明', '2016-04-04 15:26:54', '2');
+COMMIT;
+3.
+drop table person_sun;
+create table person_sun(
+  id int(6) not null auto_increment,
+  firstName varchar(20),
+  lastName varchar(20),
+  address varchar(20),
+  city varchar(10),
+  primary key(id)
+);
+# insert into person_sun(firstname,lastname,address,city)
+values('sun2','一生有你2','红谷滩','南昌');
+insert into person_sun(firstname,lastname,address,city)
+values('sunXin','一生有你3','红谷滩','南昌');
+insert into person_sun(id,firstname,lastname,addr,city)
+values(2,'sunXin2','一生有你3','红谷滩','南昌');
+# id 1 2 3
+ create table p_id_se(
+    id int(4),
+    pid int(4),
+    seid int(4),
+    primary key (id) 
+  );
+  insert into p_id_se values (1,1,1);
+  insert into p_id_se values (2,1,2);
+  insert into p_id_se values (3,2,1);
+  insert into p_id_se values (4,3,2);
+  insert into p_id_se values (5,4,1);  
+#第二列要关联到person_sun表中的id
+
+ create table se_sun(
+    id int(4),
+    cour varchar(20),
+    tea varchar(20),
+    primary key (id)
+  );
+ insert into se_sun values (1,'语文','李老师');
+insert into se_sun values (2,'计算机','刘老师');
+insert into se_sun values (3,'算法','江老师');
+3.
+create table t_useru(
+  id varchar(100),
+  name varchar(200)
+);
+4.
+create table student(
+sno int(10) not null,
+sname varchar(20),
+ssex varchar(4),
+sage int(3),
+sdept varchar(20),
+primary key(sno)
+);
+insert into student values(1,'孙','男',21,'计算机协会');
+insert into student values(2,'胡','男',23,'书画');
+insert into student values(3,'李','女',22,'红歌');
+insert into student values(4,'王','女',24,'玩');
+insert into student values(5,'刘','男',22,'文学');
+     
+create table course(
+cno int(10),
+cname varchar(20),
+primary key(cno));
+insert into course values(1,'计算机原理');
+insert into course values(2,'java');
+insert into course values(3,'数学');
+insert into course values(4,'语文');
+insert into course values(5,'英语');
+
+create table scourse(
+id int(10),
+sno int(10),
+cno int(10),
+grade int(3),
+primary key(id)
+);
+insert into scourse values(1,1,1,68);
+insert into scourse values(2,2,1,60);
+insert into scourse values(3,3,2,90);
+insert into scourse values(4,4,5,30);
+insert into scourse values(5,5,4,50);
+insert into scourse values(6,2,2,100);
+
+5.
+create table score_s(
+   id int(4),
+  name varchar(20),
+  sess varchar(20),
+  score int(4),
+  primary key(id)
+);
+
+ insert into score_s values(1,'张三','语文',81);
+ insert into score_s values(2,'张三','数学',75);
+ insert into score_s values(3,'李四','语文',76);
+ insert into score_s values(4,'王五','语文',81);
+ insert into score_s values(5,'王五','数学',100);
+ insert into score_s values(6,'王五','英语',90);
+ insert into score_s values(7,'李四','英语',90);
+
+6.create table stu3(
+id int(4),
+sname varchar(20),
+primary key(id)
+);
+create table course3(
+cid int(4),
+name varchar(20),
+primary key(cid)
+);
+create table score3 (
+   id int(4),
+   sid int(4),
+   cid int(4),
+    score int(4),
+   primary key(id)
+ );
+
+insert into stu3 values (1,'小华');
+insert into stu3 values (2,'小明');
+insert into stu3 values (3,'小李');
+insert into stu3 values (4,'小伟');
+
+insert into course3 values (1,'java');
+insert into course3 values (2,'c++');
+insert into course3 values (3,'net');
+
+insert into score3 values (1,1,1,76);
+insert into score3 values (2,1,2,89);
+insert into score3 values (3,1,3,90);
+insert into score3 values (4,2,1,89);
+insert into score3 values (5,2,2,90);
+insert into score3 values (6,4,1,90);
+insert into score3 values (7,4,1,75);
+--
+7.
+create table fru(
+   id int(4),
+   name varchar(20),
+   Classa varchar(20),
+   counta int(4),
+   datea  date
+)
+insert into fru values (1,'苹果','水果',10, '2021-07-01');
+insert into fru values (1,'桔子','水果',20, '2021-07-02');
+insert into fru values (1,'香蕉','水果',15, '2021-07-03');
+insert into fru values (2,'白菜','蔬菜',12, '2021-07-01');
+insert into fru values (2,'青菜','蔬菜',19, '2021-07-02');
+
+insert into fru2 values (1,'苹果','水果',10, '2021-07-01');
+insert into fru2 values (1,'桔子','水果',20, '2021-07-02');
+insert into fru2 values (1,'香蕉','水果',15, '2021-07-03');
+insert into fru2 values (2,'白菜','蔬菜',12, '2021-07-01');
+insert into fru2 values (2,'青菜','蔬菜',19, '2021-07-02');
+create table A(
+  id int(4),
+  name varchar(20),
+  primary key(id)
+);
+insert into A values(1,'A1');
+insert into A values(2,'A2');
+insert into A values(3,'A3');
+
+create table B(
+  id int(3),
+  aid int(3),
+  name varchar(20),
+  primary key(id)
+);
+insert into B values(1,1,'B1');
+insert into B values(2,2,'B2');
+insert into B values(3,2,'B3');
+
+73
+   create table stu4(
+    id int(4),
+    sno int(4),
+    name varchar(20),
+    age int(4),
+    primary key (id)
+   )
+ insert into stu4 values (1,1,'sun',18);
+ insert into stu4 values (2,1,'sun',18);
+ insert into stu4 values (3,2,'hu',19);
+ insert into stu4 values (4,2,'hu',19);
+ insert into stu4 values (5,3,'xu',20);
+ insert into stu4 values (6,4,'li',21);
+
+ create table pro(
+    sno varchar(20),
+    name varchar(20),
+    addr varchar(20)
+   );
+ insert into  pro values ('sc01','compu01','杭州');
+insert into  pro values ('sc01','compu01','杭州'); 
+insert into  pro values ('sc01','compu01','杭州'); 
+insert into  pro values ('sc02','compu02','南昌');
+insert into  pro values ('sc02','compu02','南昌');
+insert into  pro values ('sc03','compu03','杭州');
+insert into  pro values ('sc04','compu04','北京');
+id sno name addr
+1  sc01 com01 杭州
+2  sc01 com01 杭州
+
+ create table pro2(
+    sno int(4),
+    name varchar(20),
+    addr varchar(20)
+   );
+ insert into  pro2 values (1,'compu01','杭州');
+insert into  pro2 values (2,'compu01','杭州'); 
+insert into  pro2 values (3,'compu03','杭州');
+insert into  pro2 values (4,'compu04','北京');
+
+CREATE TABLE pro3  (
+  sno int NOT NULL,
+  name varchar(20) ,
+  addr varchar(20) ,
+  UNIQUE INDEX sno(sno) USING BTREE
+) ;
+ insert into  pro3 values (1,'compu01','杭州');
+insert into  pro3 values (2,'compu01','杭州'); 
+insert into  pro3 values (3,'compu03','杭州');
+insert into  pro3 values (4,'compu04','北京');
+7.
+create table student2(
+  sno int(4),
+  sname varchar(30),
+  sage int(4)
+);
+insert into student2 values (1,'sun',18);
+insert into student2 values (2,'hu',19);
+insert into student2 values (3,'xie',20);
+
+74.
+ create table gender(
+ id int(4) primary key auto_increment,
+ name varchar(30),
+ sex varchar(4),
+ check(sex='男' or sex='女')
+);
+insert into gender(name,sex) values ('sun','保密');
+insert into gender(name,sex) values ('sun','男');
+
+8.create table zhao(
+id int(6) primary key,
+mingcheng varchar(50),
+neirong varchar(50),
+jiezhiriqi date,
+zhuangtai varchar(50)
+);
+insert into zhao values (1,'aa','cc',to_date('2020-07-01','yyyy-mm-dd'),'ac');
+insert into zhao values (2,'bb','bb',to_date('2020-07-02','yyyy-mm-dd'),'bd');
+
+create table tou(
+id intprimary key,
+zhao_id int(6),
+toubiaoqiye varchar(50),
+biaoshuneirong varchar(50),
+toubiaoriqi date,
+baojia number(6),
+zhuangtai varchar(50),
+foreign key (zhao_id) references zhao(id)
+);
+insert into tou values (1,1,'ta','ta','2020-07-01',3,'ac');
+8.
+create table depta(
+id int(6) primary key,
+Name varchar(50)
+);
+create table empc(
+id int(4)primary key,
+Ename varchar(20),
+Addr varchar(30),
+e_id int(6),
+foreign key (e_id) references depta(id)
+);
+
+insert into depta values (222,'开发部');
+insert into empc values(1,'s','fmjj',222);
+9.
+create table sex_s(
+  ID int(4),
+  NAME VARCHAR(20),
+  sex VARCHAR(20),
+  primary key(id)
+);
+insert into sex_s(id,NAME,sex) values(1,'sun','男');
+insert into sex_s(id,NAME,sex) values(2,'aa','女');
+insert into sex_s(id,NAME,sex) values(3,'bb','男');
+insert into sex_s(id,NAME,sex) values(4,'cc','女');
+insert into sex_s(id,NAME,sex) values(5,'dd','男');
+insert into sex_s(id,NAME,sex) values(6,'ee','男');
+
+10.CREATE TABLE score_s
+(   
+ID int(4)
+NAME VARCHAR(20),
+COURSE VARCHAR(20),
+SCORE  NUMBER
+)
+
+insert into score_s(id,NAME,COURSE,SCORE )  values(1,'sun','语文',80);
+
+insert into score_s(id,NAME,COURSE,SCORE )  values(1,'sun','数学',82);
+insert into score_s(id,NAME,COURSE,SCORE )  values(1,'sun','英语',87);
+insert into score_s(id,NAME,COURSE,SCORE )  values(2,'xie','数学',55);
+insert into score_s(id,NAME,COURSE,SCORE )  values(2,'sun','语文',56);
+insert into score_s(id,NAME,COURSE,SCORE )  values(2,'sun','英语',57);
+insert into score_s(id,NAME,COURSE,SCORE )  values(3,'hu','数学',60);
+insert into score_s(id,NAME,COURSE,SCORE )  values(4,'hu','语文',60);
+11.S(Sid,SN,SD,SA)Sid,SN,SD,SA分别代表学号，学员姓名，所属单位，学员年龄
+
+     C(Cid,CN)Cid,CN分别代表课程编号，课程名称
+
+     SC(Sid,Cid,G) Sid,Cid,G分别代表学号，所选的课程编号，学习成绩
+create table S(
+Sid int(3),
+SN varchar(20),
+SD varchar(20),
+SA int(3),
+primary key(Sid)
+);
+insert into S values(1,'夜华','学生会',18);
+insert into S values(2,'素素','团委',20);
+insert into S values(3,'java孙','思诚',18);
+insert into S values(4,'java键','思诚',18);
+insert into S values(5,'小丽','思诚',18);
+create table C(
+Cid int(3),
+CD varchar(20),
+primary key(Cid)
+);  
+insert into C values(1,'税收基础');
+insert into C values(2,'电子商务');
+insert into C values(3,'java程序设计');
+insert into C values(4,'oracle');
+insert into C values(5,'算法');
+
+create table SC(
+Sid int(3),
+Cid int(3),
+G int(3)
+);
+insert into SC values(1,1,90);
+insert into SC values(1,2,99);
+insert into SC values(2,2,98);
+insert into SC values(2,1,98);
+insert into SC values(2,4,98);
+insert into SC values(2,5,98);
+insert into SC values(3,3,100);
+insert into SC values(3,1,99);
+insert into SC values(4,1,90);
+ create  table ax(
+	 id int(4),
+	 name varchar(10),
+	 age int(3),
+	 addr varchar (20))
+12. create table student2 
+(  
+    sno varchar(10) primary key not null,  
+    sname varchar(20),  
+    sage int(2),  
+    ssex varchar(5)  
+)  
+  insert into student2 values ('s01','刘红',18,'女');
+  insert into student2 values ('s02','刘亮',19,'女');
+  insert into student2 values ('s03','李先',17,'男');
+  insert into student2 values ('s04','明上',20,'女');
+  insert into student2 values ('s05','山木',21,'女');
+/*教师表*/  
+create table teacher   
+(  
+   tno varchar(10) primary key,  
+   tname varchar(20)  
+)   
+  insert into teacher values ('t01','孙老师');
+  insert into teacher values ('t02','胡老师');
+  insert into teacher values ('t03','刘老师');
+
+/*课程表*/  
+create table course2  
+(  
+    cno varchar(10),  
+    cname varchar(20),  
+    tno varchar(20)
+)   
+  
+insert into course2  values ('c01','计算机原理','t01');
+insert into course2 values ('c02','算法','t01');
+insert into course2 values ('c03','数据结构','t02');
+insert into course2 values ('c04','英语','t03');
+
+/*成绩表*/  
+create table sc2   
+(  
+    sno varchar(10),  
+    cno varchar(10),  
+    score int(4)
+) ; 
+insert into sc2   values ('s01','c01',89);
+insert into sc2   values ('s01','c02',90);
+insert into sc2   values ('s01','c03',92);
+insert into sc2   values ('s02','c01',93);
+insert into sc2   values ('s02','c02',91);
+insert into sc2   values ('s02','c03',90);
+insert into sc2   values ('s03','c01',99);
+insert into sc2   values ('s03','c02',98);
+insert into sc2   values ('s03','c03',96);
+insert into sc2   values ('s04','c01',91);
+insert into sc2   values ('s04','c03',93);
+insert into sc2   values ('s05','c03',78);
+13.
+create table t_score(
+	sname varchar(10),
+	cname varchar(10),
+	val int(3)
+);
+insert into t_score values 
+('皮卡丘','语文',90),
+('杰尼龟','数学',88),
+('杰尼龟','语文',60),
+('杰尼龟','英语',68),
+('妙蛙种子','语文',86),
+('妙蛙种子','数学',60),
+('妙蛙种子','物理',66),
+('皮卡丘','英语',70);
+
+CREATE TABLE IF NOT EXISTS websites2(
+    id INT(6)  AUTO_INCREMENT,
+   name VARCHAR(40) NOT NULL,
+   url VARCHAR(100) NOT NULL,
+   da  date,
+   PRIMARY KEY (id )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+create table usera(
+  uid int primary key auto_increment,
+  username varchar(50) not null,
+  password varchar(50) not null
+);
+insert into usera (username,password) values ('a6','a6')
+//如果要备份数据，要相同，如果不备份，可以不一样
+create table user_logs(
+  id int primary key auto_increment,
+  time timestamp,
+  log_text varchar(100)
+);
+--
+CREATE TABLE A (
+  id int(11) NOT NULL,
+  name char(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+); 
+INSERT INTO A VALUES (1, 'a1');
+INSERT INTO A VALUES (2, 'a2');
+CREATE TABLE B (
+  id int(11) NOT NULL,
+aid int(8),
+  name char(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+); 
+
+INSERT INTO B VALUES (1,1, 'b1');
+INSERT INTO B VALUES (2,2, 'b2');
+INSERT INTO B VALUES (3,3, 'b3');
